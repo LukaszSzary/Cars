@@ -42,9 +42,9 @@ namespace Cars.API.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> PutCar(Guid id, Car car)
+        public async Task<ActionResult> PutCar( Car car)
         {
-            await _mediator.Send(new Edit.Command { Car=car ,Id=id});
+            await _mediator.Send(new Edit.Command { Car=car ,Id=car.Id});
             return StatusCode(201);
         }
     }
